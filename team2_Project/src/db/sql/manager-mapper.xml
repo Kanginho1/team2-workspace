@@ -2,4 +2,12 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
+	<entry key="loginManager">
+		SELECT MANAGER_NO
+			 , MANAGER_ID
+			 , MANAGER_PWD
+		FROM TB_MANAGER
+		WHERE MANAGER_ID = ?
+		AND MANAGER_PWD = ?
+	</entry>
 </properties>
