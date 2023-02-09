@@ -45,6 +45,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    z-index: 5;
 }
 .form{
     display: flex;
@@ -79,15 +80,10 @@ form.sign-up-form{
     border-radius: 50px;
     display: flex;
 }
-.input-field i{
-    flex: 1;
-    text-align: center;
-    color: dimgrey;
-    font-size: 18px;
-}
+
 
 .input-field input{
-    flex: 5;
+    flex: 6;
     background: none;
     border: none;
     outline: none;
@@ -191,6 +187,7 @@ form.sign-up-form{
     transform: translateX(0);
    
 }
+
 
 /*애니메이션*/
 .container.sign-up-mode::before{
