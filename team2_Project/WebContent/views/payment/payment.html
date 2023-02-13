@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="../../resources/js/jquery-3.6.3.min.js"></script>
+  <style>
+    .input-box {
+      display: flex;
+      margin: 15px;
+      width: 400px;
+      padding: 6px;
+      border-radius: 15px;
+      border: 1px solid #e2e2e2;
+    }
+
+    .input-box i {
+      flex: 1;
+    }
+
+    .input-box input {
+      flex: 7;
+      border: none;
+      outline: none;
+    }
+
+    .product_container {
+
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.5;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    #searchBar {
+      padding-top: 50px;
+    }
+
+    #product_detail>div {
+      text-align: left;
+    }
+
+    input.img-button {
+      background: url("../resources/image/icons8-expand-arrow-26.png") no-repeat;
+      border: none;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .estmtPyamn th {
+      text-align: left;
+    }
+
+    .estmtPyamn td {
+      text-align: right;
+    }
+
+    .topLine {
+      border-top: 2px solid rgb(186, 185, 185);
+      margin-top: 25px;
+    }
+
+    #orderInfo td {
+      text-align: left;
+    }
+
+    #delivery th {
+      text-align: left;
+    }
+
+    #delivery td {
+      text-align: left;
+    }
+
+    option {
+      font-size: 12px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox  */
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+
+    #payment {
+      background-color: rgb(241, 241, 241);
+      margin-top: 20px;
+    }
+
+    #payment>div {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-weight: 600;
+    }
+
+    #payment table {
+      font-size: 14px;
+      text-align: left;
+      padding-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container text-center">
+    <div class="row">
+      <div id="input_logo" class="col">
+        <img src="../resources/image/로고1.png" width="80%" height="200px" alt="">
+      </div>
+      <div id="searchBar" class="col">
+        <div class="input-box">
+          <i class="fa-solid i1 fa-magnifying-glass"></i>
+          <input type="text">
+          <i class="fa-solid fa-keyboard"></i>
+          <i class="fa-solid fa-microphone"></i>
+          <button type="button" class="btn btn-outline-info" style="border-color: plum ;  color : plum">검색</button>
+        </div>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#" style=" color:plum">뭐입지그램</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" style=" color:plum">쇼핑</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" style=" color:plum">고객센터</a>
+    </li>
+  </ul>
+  <div>
+    <hr>
+  </div>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-1">
+      </div>
+      <div class="col-11" style="text-align: left; padding-top: 20px; font-size: 25px; font-weight: 800;">
+        결제
+      </div>
+    </div>
+    <div class="row" style="padding-top: 40px;">
+      <div class="col-1">
+
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-4" style="text-align: left; font-weight: 800;">
+            주문상품정보
+          </div>
+          <div class="col-7">
+            총 1개/49,600
+          </div>
+          <div class="col-1">
+            <input type="button" id="slide-button" class="img-button" onclick="slide();">
+          </div>
+        </div>
+        <div class="row" id="orderInformation" style="display: none">
+          <div class="col-4">
+            <div style="text-align: left;">
+              <img src="https://images.seoulstore.com/products/17d78e1a1d54940a3170b29f099a4f10.jpg" width="70%"
+                height="100px" alt="">
+            </div>
+          </div>
+          <div class="col-8" id="product_detail">
+            <div style="margin-top: 10px; font-weight: 700;">오드스튜디오</div>
+            <div>보네백</div>
+            <table style="margin-top: 10px; margin-left: 5px;">
+              <tr>
+                <th width="102px" style="text-align: left; font-size: 16px;">size</th>
+                <td style="font-size: 16px;">m</td>
+              </tr>
+            </table>
+            <div class="topLine">
+              <table style="margin-top: 10px; margin-left: 5px;">
+                <tr>
+                  <th width="102px" style="text-align: left; font-size: 16px;">수량</th>
+                  <td style="font-size: 16px;">1</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="topLine"></div>
+
+        <div class="topLine" style="margin-top: 50px;"></div>
+        <table id="orderInfo" style="margin-top: 20px; margin-left: 10px;">
+          <tr>
+            <th width="180" style="font-weight: 900; text-align: left; font-size: 20px;">주문자 정보</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td>강인호</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>inho@naver.con</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>010-1234-5678</td>
+          </tr>
+        </table>
+        <div class="topLine"></div>
+        <table id="orderInfo" style="margin-top: 20px; margin-left: 10px;">
+          <tr>
+            <th width="180" style="font-weight: 900; text-align: left; font-size: 20px;">배송 정보</th>
+            <td width="450" style="text-align: right;">
+              <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">배송지
+                목록</button>
+            </td>
+          </tr>
+        </table>
+        <table id="delivery" style="margin-left: 100px;">
+          <tr>
+            <th>이름</th>
+            <td>강인호</td>
+          </tr>
+          <tr>
+            <th>주소</th>
+            <td><input type="text" id="address_kakao" name="address" readonly /></td>
+          </tr>
+          <tr>
+            <th>상세 주소</th>
+            <td><input type="text" name="address_detail" /></td>
+          </tr>
+          <tr>
+            <th>배송 요청사항</th>
+            <td width="400" style="text-align: left;">
+              <select id="delivery_select" class="form-select" aria-label="Default select example">
+                <option selected>배송 시 요청사항을 적어주세요</option>
+                <option value="1">부재 시 경비실에 맡겨주세요</option>
+                <option value="2">부재 시 집앞에 놔주세요</option>
+                <option value="3" onclick="directInput();">직접입력</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><textarea name="" id="direct_input" cols="30" rows="4" style="display: none;"></textarea></td>
+          </tr>
+        </table>
+        <div class="topLine"></div>
+        <table id="orderInfo" style="margin-top: 20px; margin-left: 10px;">
+          <tr>
+            <th width="180" style="font-weight: 900; text-align: left; font-size: 20px;">마일리지 사용</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td><span>보유 마일리지</span> <span id="max-mileage">627</span>원</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="number" id="input-mileage" name="amount" min="0" max="">
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="check-mileage" onclick="mileage();">
+                <label class="form-check-label" for="check-mileage">
+                  전액 사용하기
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div class="topLine" style="margin-bottom: 100px;"></div>
+      </div>
+      <div class="col-3" style="margin-left: 20px;">
+        <div style="font-weight: 600; padding-bottom: 20px; text-align: left;">최종 결제금액</div>
+        <table class="estmtPyamn">
+          <tr>
+            <th>주문 상품 수</th>
+            <td width="170" height="40">1개</td>
+          </tr>
+          <tr>
+            <th>주문금액</th>
+            <td height="40">49,000원</td>
+          </tr>
+          <tr>
+            <th>배송비</th>
+            <td height="40">무료</td>
+          </tr>
+          <tr>
+            <th>할인금액</th>
+            <td height="40">0원</td>
+          </tr>
+        </table>
+        <div class="topLine"></div>
+        <table class="estmtPyamn" style="margin-top: 15px;">
+          <tr>
+            <th>적립금 할인</th>
+            <td width="170" height="40">0원</td>
+          </tr>
+          <tr>
+            <th>적립 마일리지</th>
+            <td height="40">498원</td>
+          </tr>
+        </table>
+        <div class="topLine"></div>
+        <table class="estmtPyamn" style="margin-top: 15px;">
+          <tr>
+            <th>최종 결제금액</th>
+            <td width="170" height="40">49,600원</td>
+          </tr>
+        </table>
+        <div class="topLine"></div>
+        <div style="font-size: 23px; text-align: left; margin-top: 20px; font-weight: 549;">결제수단</div>
+        <div class="topLine"></div>
+        <div id="payment" class="row">
+          <div>결제수단 안내</div>
+          <table id="payment2">
+            <tr>
+              <td width="100" height="30"> <span><img src="https://www.seoulstore.com/images/n_logo@3x.png" width="15%"
+                    height="60%" alt=""></span> pay</td>
+              <td>결제 시 네이버페이 포인트 적립</td>
+            </tr>
+            <tr>
+              <td height="30">
+                <div> <img src="	https://www.seoulstore.com/images/kakaopay.png" width="40%" height="80%" alt=""></div>
+              </td>
+              <td>등록 된 모든 카드로 결제 가능</td>
+            </tr>
+            <tr>
+              <td height="30">카드결제</td>
+              <td>결제 시 최대 2~6개월 무이자 할부</td>
+            </tr>
+            <tr>
+              <td height="30">무통장 입금</td>
+              <td>신한,우리,국민 등 13개 은행 지원</td>
+            </tr>
+          </table>
+        </div>
+        <div style="margin-top: 15px;">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              주문내용 확인 및 결제 동의(전체 동의)
+            </label>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 20px; margin-bottom: 50px;">
+          <button class="btn btn-primary" type="button"
+            style="background-color: pink; border-color: pink;">결제하기</button>
+        </div>
+      </div>
+      <div class="col-2">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">배송지 목록</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <label for="radio1">
+            <div style="font-weight: 600;">강인호</div>
+            <div>경기도 기흥구 흥덕 4로 30번길</div>
+            <div>준하이빌 505호</div>
+            <input type="radio" id="radio1" name="address" value="address1" checked>
+          </label>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">배송지 추가</button>
+          <button type="button" class="btn btn-primary">선택하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function slide() {
+      if ($("#orderInformation").css("display") == "none") {
+        $("#orderInformation").slideDown(200);
+        $("#orderInformation").show();
+      } else {
+        $("#orderInformation").slideUp(200);
+      }
+    }
+    $(document).ready(function () {
+      $('#delivery_select').change(function () {
+        var result = $('#delivery_select option:selected').val();
+        if (result == '3') {
+          $('#direct_input').show();
+        } else {
+          $('#direct_input').hide();
+        }
+      });
+    });
+
+    function mileage() {
+      if (!$('#check-mileage').is(':checked')) {
+        $('#input-mileage').val('');
+      } else {
+        let mileage = $('#max-mileage').html();
+        $('#input-mileage').val(mileage);
+      }
+    }
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</body>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+  window.onload = function () {
+    document.getElementById("address_kakao").addEventListener("click", function () { //주소입력칸을 클릭하면
+      //카카오 지도 발생
+      new daum.Postcode({
+        oncomplete: function (data) { //선택시 입력값 세팅
+          console(data.address);
+          document.getElementById("address_kakao").value = data.address; // 주소 넣기
+          document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+        }
+      }).open();
+    });
+  }
+</script>
+
+</html>
