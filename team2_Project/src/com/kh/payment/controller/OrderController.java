@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.kh.member.model.service.MemberService;
 import com.kh.member.model.vo.Member;
 import com.kh.payment.model.service.PaymentService;
 import com.kh.payment.model.vo.Order;
@@ -81,7 +82,9 @@ public class OrderController extends HttpServlet {
 				
 			}
 			if(result2*result3*result4*result6>0) { 
-				System.out.println("성공!");
+				Member updateMember = (Member) request.getSession().getAttribute("loginUser");
+				updateMember.setMileage(updateMember.getMileage()-useMileage);
+				session.setAttribute("loginUser", updateMember);
 				response.sendRedirect(request.getContextPath()+"/orderHistory.mp");
 			}
 		}else {
